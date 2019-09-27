@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    position: relative;
+    color: white;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.background {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../img/splash.jpg');
+    background-position: top center;
+}
+.container {
+    max-width: 1200px;
+    padding: 0 1rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main-nav {
+    position: fixed;
+    top: 0;
+    background-color: black;
+    width: 100%;
+    font-size: .875rem;
+    z-index: 1000;
+}
+.main-nav__logo {
+    display: block;
+    height: 45px;
+    width: 180px;
+    background-image: url('../img/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.main-nav__contact-group {
+    display: flex;
+    padding: .5rem 0;
+    justify-content: flex-end;
+}
+.main-nav__contact-group-item {
+    transition: 0.15s linear;
+    color: #F93542;
+    position: relative;
+    padding-left: 20px;
+    margin-left: 20px;
+    margin-left: 2rem;
+}
+.main-nav__contact-group-item::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+}
+.main-nav__contact-group-item--phone:before {
+    background-color: yellowgreen;
+}
+.main-nav__contact-group-item--email:before {
+    background-color: palevioletred;
+}
+.main-nav__menu-group {
+    display: flex;
+}
+.main-nav__menu-group-item {
+    position: relative;
+    text-transform: uppercase;
+    transition: 0.2s linear;
+    cursor: pointer;
+    margin-left: 2rem;
+    padding: .5rem;
+    font-weight: bold;
+}
+.main-nav__menu-group-item:hover {
+    color: #F93542;
+}
+.main-nav__menu-group-item:hover
+.main-nav__submenu {
+    display: block;
+}
+.main-nav__menu-group-item:first-child {
+    margin-left: 0;
+}
+.main-nav__submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    padding: .5rem 0;
+    background-color: white;
+    border-top: 3px solid #F93542;
+    width: 100%;
+}
+.main-nav__submenu-item {
+    text-transform: none;
+    font-weight: normal;
+    color: black;
+    padding: .375rem;
+}
+.main-nav__submenu-item:hover {
+    color: #F93542;
+}
