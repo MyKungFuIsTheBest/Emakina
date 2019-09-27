@@ -1,42 +1,58 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./resources/scss/style.css"/>
+        <link rel="stylesheet" href="./resources/css/style.css"/>
+        <link rel="stylesheet" href="./resources/css/style.css"/>
     </head>
     <body>
         <div class="main-nav">
             <div class="container">
                 <a href="#" class="main-nav__logo"></a>
-                <div class="main-nav__menu">
+                <div class="main-nav__menu" id="mainNav">
                     <ul class="main-nav__contact-group">
-                        <li class="main-nav__contact-group-item main-nav__contact-group-item--phone">+48 618 908 392</li>
-                        <li class="main-nav__contact-group-item main-nav__contact-group-item--email">office@predictes.com</li>
+                        <li class="main-nav__contact-item main-nav__contact-item--phone">+48 618 908 392</li>
+                        <li class="main-nav__contact-item main-nav__contact-item--email">office@predictes.com</li>
                     </ul>
                     <nav>
                         <ul class="main-nav__menu-group">
-                            <li class="main-nav__menu-group-item">
-                                <span>O firmie</span>
+                            <li class="main-nav__menu-item">
+                                <div class="main-nav__menu-link main-nav__menu-link--submenu">O firmie</div>
                                 <ul class="main-nav__submenu">
                                     <li class="main-nav__submenu-item">O nas</li>
                                     <li class="main-nav__submenu-item">Historia</li>
                                     <li class="main-nav__submenu-item">Zespół</li>
                                 </ul>
                             </li>
-                            <li class="main-nav__menu-group-item">
-                                    <span>Realizacje</span>
-                                    <ul class="main-nav__submenu">
-                                        <li class="main-nav__submenu-item">Realizacja #1</li>
-                                        <li class="main-nav__submenu-item">Realizacja #2</li>
-                                        <li class="main-nav__submenu-item">Realizacja #3</li>
-                                    </ul></li>
-                            <li class="main-nav__menu-group-item">Blog</li>
-                            <li class="main-nav__menu-group-item">Partnerzy</li>
-                            <li class="main-nav__menu-group-item">Kontakt</li>
+                            <li class="main-nav__menu-item">
+                                <div class="main-nav__menu-link main-nav__menu-link--submenu">Realizacje</div>
+                                <ul class="main-nav__submenu">
+                                    <li class="main-nav__submenu-item">Realizacja #1</li>
+                                    <li class="main-nav__submenu-item">Realizacja #2</li>
+                                    <li class="main-nav__submenu-item">Realizacja #3</li>
+                                </ul>
+                            </li>
+                            <li class="main-nav__menu-item">
+                                <div class="main-nav__menu-link">Blog</div>
+                            </li>
+                            <li class="main-nav__menu-item">
+                                <div class="main-nav__menu-link">Partnerzy</div>
+                            </li>
+                            <li class="main-nav__menu-item">
+                                <div class="main-nav__menu-link">Kontakt</div>
+                            </li>
                         </ul>
                     </nav>
                 </div>
+                <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                </div>
             </div>
         </div>
+        <div class="overlay-mobile" onclick="toggleMenu()"></div>
         <div class="background"></div>
+
+        <script src="./resources/js/scripts.js"></script>
     </body>
 </html>
