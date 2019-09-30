@@ -59,7 +59,7 @@ var bonus = {
         elem.innerHTML = '-';
     },
     bonusEffect: function() {
-        var rand = Math.floor((Math.random() * 6) + 1)
+        var rand = Math.floor((Math.random() * 6.4) + 1)
         switch(rand) {
             case 1:
                 scores.addScore(game.xFactor);
@@ -189,7 +189,7 @@ var scores = {
         document.getElementById('score').innerHTML = this.current;
     },
     deleteHighscoresList: function () {
-        var ul = document.querySelector("ul");
+        var ul = document.querySelector("ul#highscores");
         var li = ul.lastElementChild;
         while (li) {
             ul.removeChild(li);
@@ -399,8 +399,8 @@ function levelFour() {
 function levelFive() {
     var maze = [];
     for (var x = 0; x <= 16; x++) {
-        for (var i = 0; i <= 45; i++) {
-            maze.push([(i + 2) - (i % 3), 3*x])
+        for (var i = 0; i <= 16; i++) {
+            maze.push([3*i, 3*x])
         }
     }
         
@@ -422,22 +422,22 @@ function setLevel(level) {
         break;
         case 2:
             gameSettings.level = levelTwo();
-            scores.levelMultiplier = 1.2;
+            scores.levelMultiplier = 1.5;
             setLevelInfo(2);
         break;
         case 3:
             gameSettings.level = levelThree();
-            scores.levelMultiplier = 1.5;
+            scores.levelMultiplier = 2;
             setLevelInfo(3);
         break;
         case 4:
             gameSettings.level = levelFour();
-            scores.levelMultiplier = 2;
+            scores.levelMultiplier = 3;
             setLevelInfo(4);
         break;
         case 5:
             gameSettings.level = levelFive();
-            scores.levelMultiplier = 2.5;
+            scores.levelMultiplier = 5;
             setLevelInfo(5);
         break;
     }

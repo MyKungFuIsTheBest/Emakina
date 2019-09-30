@@ -3,193 +3,87 @@
 
 <head>
     <script type="text/javascript" src="snake.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body onload="draw();">
-    <div class="row">
-        <canvas id="snakeGame" width="500" height="500"></canvas>
-        <div class="sidebar">
-            <div class="scores">
-                <p>Current score: <span id="score">0</span></p>
-                <p>High scores:</p>
-                <ul id="highscores">
-                    
-                </ul>
+<body>
+    <div class="container">
+        <div class="row">
+            <canvas id="snakeGame" width="500" height="500"></canvas>
+            <div class="sidebar">
+                <div class="legend border">
+                    <p class="info-badge"><b>Use arrows to change snake's movement direction</b></p>
+                    <ul class="legend__list">
+                        <li>Snake</li>
+                        <li>Apple</li>
+                        <li>Random Bonus</li>
+                        <li>Wall</li>
+                    </ul>
+                </div>
+                <div class="scores border">
+                    <p>High scores:</p>
+                    <ul id="highscores">
+                        
+                    </ul>
+                </div>
             </div>
-            <div class="legend">
-                <p>Legend:</p>
-                <ul class="legend__list">
-                    <li>Snake</li>
-                    <li>Apple</li>
-                    <li>Bonus</li>
-                    <li>Wall</li>
-                </ul>
+        </div>
+        <div class="row aic bonus ml-1 ">
+            <span>Active Bonus:&nbsp;</span>
+            <span id="activeBonus" class="none">-</span>
+            <span class="ml-auto">Current score:</span> <span id="score">0</span>
+        </div>
+        <div class="new-game-controls border">
+            <h2>Settings</h2>
+            <div class="row aic">
+                <span>Set level: </span>
+                <button onclick="setLevel(1)">1</button>
+                <button onclick="setLevel(2)">2</button>
+                <button onclick="setLevel(3)">3</button>
+                <button onclick="setLevel(4)">4</button>
+                <button onclick="setLevel(5)">5</button>
+                <span class="ml-auto">Level</span>
+                <span id="levelInfo">1</span>
+                <span>(points x</span>
+                <span id="levelPointsInfo" class="mr-0">1</span>
+                <span>)</span>
+            </div>
+            <div class="row aic">
+                <span>Set speed: </span>
+                <button onclick="setSpeed(130)">Slow</button>
+                <button onclick="setSpeed(100)">Medium</button>
+                <button onclick="setSpeed(70)">Fast</button>
+                <span class="ml-auto">Speed</span>
+                <span id="speedInfo">10</span>
+                <span>(points x</span>
+                <span id="speedPointsInfo" class="mr-0">1</span>
+                <span>)</span>
+            </div>
+            <div class="row aic">
+                <span>Set factor X: </span>
+                <button onclick="setXfactor(3)">3</button>
+                <button onclick="setXfactor(4)">4</button>
+                <button onclick="setXfactor(5)">5</button>
+                <span class="ml-auto">X factor is </span>
+                <span id="xInfo">3</span>
+            </div>
+            <div class="row aic">
+                <span>Bonus duration Y: </span>
+                <button onclick="setYfactor(3)">3s</button>
+                <button onclick="setYfactor(4)">4s</button>
+                <button onclick="setYfactor(5)">5s</button>
+                <span id="yInfo" class="ml-auto">3</span>s
+            </div>
+            <div class="row aic jce">
+                <button class="start-button" onclick="game.start()">Start new game</button>
             </div>
         </div>
-    </div>
-    <div class="row aic bonus">
-        <span>Active Bonus:&nbsp;</span>
-        <span id="activeBonus" class="none">-</span>
-    </div>
-    <div class="new-game-controls">
-        <h2>Settings</h2>
         <div class="row aic">
-            <span>Set level: </span>
-            <button onclick="setLevel(1)">1</button>
-            <button onclick="setLevel(2)">2</button>
-            <button onclick="setLevel(3)">3</button>
-            <button onclick="setLevel(4)">4</button>
-            <button onclick="setLevel(5)">5</button>
-            <span class="ml-auto">Level</span>
-            <span id="levelInfo">1</span>
-            <span>(points x</span>
-            <span id="levelPointsInfo" class="mr-0">1</span>
-            <span>)</span>
+            <span>"Dev tools" :)</span>
+            <button onclick="step()">step</button>
+            <button onclick="game.pause()">pause</button>
+            <button onclick="stopCycle()">Stop game</button>
         </div>
-        <div class="row aic">
-            <span>Set speed: </span>
-            <button onclick="setSpeed(130)">Slow</button>
-            <button onclick="setSpeed(100)">Medium</button>
-            <button onclick="setSpeed(70)">Fast</button>
-            <span class="ml-auto">Speed</span>
-            <span id="speedInfo">10</span>
-            <span>(points x</span>
-            <span id="speedPointsInfo" class="mr-0">1</span>
-            <span>)</span>
-        </div>
-        <div class="row aic">
-            <span>Set factor X: </span>
-            <button onclick="setXfactor(2)">2</button>
-            <button onclick="setXfactor(3)">3</button>
-            <button onclick="setXfactor(4)">4</button>
-            <span class="ml-auto">X factor is </span>
-            <span id="xInfo">3</span>
-        </div>
-        <div class="row aic">
-            <span>Bonus duration Y: </span>
-            <button onclick="setYfactor(2)">2s</button>
-            <button onclick="setYfactor(3)">3s</button>
-            <button onclick="setYfactor(4)">4s</button>
-            <span id="yInfo" class="ml-auto">3</span>s
-        </div>
-        <div class="row aic jce">
-            <button class="start-button" onclick="game.start()">Start new game</button>
-        </div>
-    </div>
-    <div class="row aic">
-        <span>"Dev tools" :)</span>
-        <button onclick="step()">step</button>
-        <button onclick="game.pause()">pause</button>
-        <button onclick="stopCycle()">Stop game</button>
     </div>
 </body>
-<style type="text/css">
-    canvas {
-        border: 1px solid black;
-    }
-    body {
-        font-family: "Helvetica Neue", "Arial", sans-serif;
-    }
-    .start-button {
-        background-color: firebrick;
-        color: white;
-        border: 0;
-        padding: .5rem 1rem;
-        cursor: pointer;
-        font-size: 120%;
-    }
-    .row {
-        display: flex;
-    }
-
-    .row span {
-        margin-right: .25rem;
-    }
-
-    .aic {
-        align-items: center;
-    }
-
-    .jce {
-        justify-content: flex-end;
-    }
-
-    #highscores {
-        list-style-type: decimal;
-    }
-
-    button {
-        margin: .5rem;
-        font-weight: bold;
-    }
-
-    .new-game-controls {
-        border: 2px solid salmon;
-        border-radius: 4px;
-        padding: .5rem;
-        max-width: 700px;
-        font-weight: bold;
-    }
-
-    .ml-auto {
-        margin-left: auto;
-    }
-
-    span.mr-0 {
-        margin-right: 0;
-    }
-    .bonus {
-        font-size: 200%;
-    }
-    #activeBonus {
-        text-transform: capitalize;
-        font-weight: bold;
-    }
-    #activeBonus.ghost {
-        color: navy;
-    }
-    #activeBonus.fast {
-        color: red;
-    }
-    #activeBonus.slow {
-        color: darkgreen;
-    }
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .sidebar>div {
-        padding-left: 1rem;
-    }
-
-    .legend__list {
-        list-style-type: none;
-        margin: 0;
-        padding-left: 2rem;
-    }
-
-    .legend__list li:before {
-        content: '';
-        width: 10px;
-        height: 10px;
-        background-color: black;
-        display: inline-block;
-        margin-right: .25rem;
-        margin-left: -2rem;
-    }
-
-    .legend__list li:nth-child(1):before {
-        background-color: forestgreen;
-    }
-
-    .legend__list li:nth-child(2):before {
-        background-color: firebrick;
-    }
-
-    .legend__list li:nth-child(3):before {
-        background-color: orange;
-    }
-</style>
 </html>
